@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducer from "./vehicle.js";
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const vehicle = createStore(reducer);
+
+const rootElement = document.getElementById("root");
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={vehicle}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
